@@ -1,0 +1,104 @@
+$primary-color: #7d98ae;
+$secondary-color: #54646b;
+
+body {
+  background-color: lighten($primary-color, 25%);
+}
+
+.page-header {
+  background-color: $primary-color;
+  display: flex;
+  box-sizing: border-box;
+  box-shadow: 3px 3px 5px 1px darken($primary-color, 5%);
+  align-items: center;
+  &__menu {
+    flex:1;
+    display: flex;
+    justify-content: space-around;
+  }
+  button {
+    background-color: Transparent;
+    border: none;
+    font-size: x-large;
+  }
+}
+
+.best-movie {
+  display: flex;
+  border: 15px;
+  padding: 15px;
+  margin: 1px, 15px, 15px;
+  box-sizing: content-box;
+  background-color: $secondary-color;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 1px darken($secondary-color, 5%);
+  &__first-block {
+    display: flex;
+    flex-direction: column;
+    button {
+      background-color: $primary-color;
+      border-radius: 5px;
+      border-color: mix($primary-color, $secondary-color);
+    }
+  }
+  &__second-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px;
+    p {
+      margin-left: 15px;
+    }
+  }
+}
+
+.movies {
+  display: flex;
+  border: 15px;
+  padding: 15px;
+  margin: 5px;
+  box-sizing: content-box;
+  background-color: $secondary-color;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 1px darken($secondary-color, 5%);
+  h2 {
+    text-align: center;
+  }
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

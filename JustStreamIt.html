@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>JustStreamIt</title>
+  </head>
+
+  <body>
+    <script src="js/model.js"></script>
+    <script src="js/functions.js"></script>
+    <header class="page-header">
+      <a class="logo">
+        <img src="images/logo.png" alt="logo" />
+      </a>
+      <nav class="page-header__menu">
+        <button>Accueil</button>
+        <button>Catégories</button>
+      </nav>
+    </header>
+
+  <h2>Meilleur film</h2>
+  <div class="best-movie">
+    <div class="best-movie__first-block">
+      <h1></h1>
+      <button class="best-movie__button"> info </button>
+      <div id="best-movie-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1></h1>
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+    <div class="best-movie__second-block">
+      <p></p>
+    </div>
+  </div>
+  <script src="js/bestMovie.js"></script>
+
+  <h2>Films les mieux notés</h2>
+  <div id="best-movies" class="movies">
+
+  </div>
+  <script src="js/bestMovies.js"></script>
+  </body>
+</html>
