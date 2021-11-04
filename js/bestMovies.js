@@ -1,7 +1,6 @@
 bestMovies(8, "-imdb_score").then(function(value) {
   for (var i = 1; i < 8; i++) {
     let select = "#bests-movies-modal" + i;
-    console.log(select);
     document
       .querySelector("#best-movies")
       .insertAdjacentHTML('beforeend', '<div><img class="bests-movies__button"'+
