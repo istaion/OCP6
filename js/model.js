@@ -1,3 +1,4 @@
+// Movie object
 class Movie {
   constructor(item) {
     this.title = item.title;
@@ -15,20 +16,20 @@ class Movie {
     this.countries = item.countries;
     this.image_url = item.image_url;
   }
-
+  // to insert html in modal
   modal(selector) {
     document
       .querySelector(selector + " h1")
       .innerText = this.title;
     document
       .querySelector(selector + " h1")
-      .insertAdjacentHTML('afterend', '<img src=' + this.image_url + ' alt="best-movie">'
-                          + '<p> genre :' + this.genres + '</p>'
-                          + '<p> date de sortie :' + this.date_published + '</p>'
-                          + '<p> rated :' + this.rated + '</p>'
-                          + '<p> score Imdb :' + this.imdb_score + '</p>'
-                          + '<p> réalisateur :' + this.directors + '</p>'
-                          + '<p> acteurs :</p>'
+      .insertAdjacentHTML('afterend', '<img src=' + this.image_url
+                          + ' alt="best-movie">' + '<p> genre :' + this.genres
+                          + '</p>' + '<p> date de sortie :'
+                          + this.date_published + '</p>' + '<p> rated :'
+                          + this.rated + '</p>' + '<p> score Imdb :'
+                          + this.imdb_score + '</p>' + '<p> réalisateur :'
+                          + this.directors + '</p>' + '<p> acteurs :</p>'
                         );
     this.actors.forEach(actor => {
       document

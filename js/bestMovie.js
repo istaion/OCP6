@@ -1,3 +1,4 @@
+// to insert html code in the top div, the best movie
 bestMovie().then(function(value){
     document
       .querySelector(".best-movie__first-block > h1")

@@ -1,10 +1,11 @@
-// function to get Best Movie object
-
+// function to get json movies sort by chosen variable
 async function movieSort(sort) {
-  const res = await fetch("http://localhost:8000/api/v1/titles/?sort_by=" + sort)
+  const res = await fetch("http://localhost:8000/api/v1/titles/?sort_by=" +
+   sort)
   return res.json();
 }
 
+// function to get the best movie object
 async function bestMovie() {
   let movieDic = await movieSort("-imdb_score");
   let movieUrl = await movieDic.results[0].url;
@@ -13,6 +14,7 @@ async function bestMovie() {
   return new Movie(bestMovie);
 }
 
+// function to get array of movie objects sort by chosen variable
 async function bestMovies(k, sort) {
   var movieDic = await movieSort(sort);
   var bestMovies = await [];
@@ -29,27 +31,23 @@ async function bestMovies(k, sort) {
   return bestMovies;
 }
 
-bestMovies(11, "-imdb_score").then(function(res){
-  console.log(res);
-})
-
-
+// function to insert html code in category div
 function categoryMovies(genre, number) {
-  var idgenre = "#" + genre;
-  var sortgenre = "-imdb_score&genre=" + genre;
-  var btnGenre = genre + "__button";
-  var closeGenre = genre + "__close";
+  let idgenre = "#" + genre;
+  let sortgenre = "-imdb_score&genre=" + genre;
+  let btnGenre = genre + "__button";
+  let closeGenre = genre + "__close";
 
   bestMovies(number, sortgenre).then(function(value) {
     for (var i = 0; i < number; i++) {
       let select = "#" + genre + "-modal" + i;
       document
         .querySelector(idgenre)
-        .insertAdjacentHTML('beforeend', '<div><img class="' + genre + '__button"'+
-        ' src=' + value[i].image_url +
-        ' alt="' + genre + i + '"> <div id="' + genre + '-modal' + i +
-        '" class="modal"><div class="modal-content">' +
-        '<span class="' + genre + '__close">&times;</span><h1></h1><ul></ul></div></div></div>');
+        .insertAdjacentHTML('beforeend', '<div><img class="' + genre +
+        '__button"' + ' src=' + value[i].image_url + ' alt="' + genre + i +
+        '"> <div id="' + genre + '-modal' + i +
+        '" class="modal"><div class="modal-content">' + '<span class="' +
+        genre + '__close">&times;</span><h1></h1><ul></ul></div></div></div>');
       value[i].modal(select);
       let bmModal = document.querySelector(select);
       let bmBtn = document.getElementsByClassName(btnGenre)[i];
