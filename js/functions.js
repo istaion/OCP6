@@ -32,13 +32,13 @@ async function bestMovies(k, sort) {
 }
 
 // function to insert html code in category div
-function categoryMovies(genre, number) {
+async function categoryMovies(genre, number) {
   let idgenre = "#" + genre;
   let sortgenre = "-imdb_score&genre=" + genre;
   let btnGenre = genre + "__button";
   let closeGenre = genre + "__close";
 
-  bestMovies(number, sortgenre).then(function(value) {
+  await bestMovies(number, sortgenre).then(function(value) {
     for (var i = 0; i < number; i++) {
       let select = "#" + genre + "-modal" + i;
       document
@@ -65,4 +65,8 @@ function categoryMovies(genre, number) {
       }
     }
   })
+  await new Carousel(document.querySelector(idgenre),{
+    slidesToScroll: 1
+  })
+
 }
