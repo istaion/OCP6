@@ -107,10 +107,12 @@ body {
   position: relative;
   &__item {
     float: left;
-    cursor: pointer;
-    transition: transform 0.3s;
-    &:hover {
-      transform: scale(1.05);
+    img {
+      cursor: pointer;
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
   &__container::after {

@@ -115,10 +115,12 @@ body {
 }
 .carousel__item {
   float: left;
+}
+.carousel__item img {
   cursor: pointer;
   transition: transform 0.3s;
 }
-.carousel__item:hover {
+.carousel__item img:hover {
   transform: scale(1.05);
 }
 .carousel__container::after {

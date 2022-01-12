@@ -57,14 +57,17 @@ class Carousel {
     this.element = element
     this.options = Object.assign({},{
       slidesToScroll: 1,
-      slidesVisible: 4
+      slidesVisible: 5
     }, options)
+    this.isMobile = true
     this.currentItem = 0
     let children = [].slice.call(element.children)
     this.root = this.createDivWithClass('carousel')
     this.container = this.createDivWithClass('carousel__container')
     this.root.appendChild(this.container)
     this.element.appendChild(this.root)
+    this.nextButton = this.createDivWithClass('carousel__next')
+    this.prevButton = this.createDivWithClass('carousel__prev')
     this.items = children.map((child) => {
       let item = this.createDivWithClass('carousel__item')
       item.appendChild(child)
@@ -73,6 +76,8 @@ class Carousel {
     })
     this.setStyle()
     this.createNavigation()
+    this.windowResize()
+    window.addEventListener('resize', this.windowResize.bind(this))
   }
 
   /**
@@ -81,9 +86,9 @@ class Carousel {
   * @returns {HTMLElement}
   */
   setStyle () {
-    let ratio = this.items.length / this.options.slidesVisible
+    let ratio = this.items.length / this.slidesVisible
     this.container.style.width = (ratio*100) + "%"
-    this.items.forEach(item => item.style.width = (100 / this.options.slidesVisible)/ratio + "%")
+    this.items.forEach(item => item.style.width = (100 / this.slidesVisible)/ratio + "%")
   }
 
   /**
@@ -98,25 +103,50 @@ class Carousel {
   }
 
   createNavigation () {
-    let nextButton = this.createDivWithClass('carousel__next')
-    let prevButton = this.createDivWithClass('carousel__prev')
-    this.root.appendChild(nextButton)
-    this.root.appendChild(prevButton)
-    nextButton.addEventListener('click', this.next.bind(this))
-    prevButton.addEventListener('click', this.prev.bind(this))
+    this.root.appendChild(this.nextButton)
+    this.root.appendChild(this.prevButton)
+    this.nextButton.addEventListener('click', this.next.bind(this))
+    this.prevButton.addEventListener('click', this.prev.bind(this))
+    this.prevButton.style.display = "none"
   }
 
   next () {
-    this.goToItem(this.currentItem + this.options.slidesToScroll)
+    this.goToItem(this.currentItem + this.slidesToScroll)
   }
 
   prev () {
-    this.goToItem(this.currentItem - this.options.slidesToScroll)
+    this.goToItem(this.currentItem - this.slidesToScroll)
   }
 
   goToItem (index) {
     let translateRatio = index * -100 / this.items.length
     this.container.style.transform = 'translate3d(' + translateRatio + '%, 0, 0)'
     this.currentItem = index
+    if (this.currentItem == 0) {
+      this.prevButton.style.display = "none"
+    } else {
+      this.prevButton.style.display = "flex"
+    }
+    if (this.currentItem == this.items.length - this.slidesVisible) {
+      this.nextButton.style.display = "none"
+    } else {
+      this.nextButton.style.display = "flex"
+    }
+  }
+
+  windowResize () {
+    let mobile = window.innerWidth < 1000
+    if (mobile !== this.isMobile) {
+      this.isMobile = mobile
+      this.setStyle()
+    }
+  }
+
+  get slidesToScroll () {
+    return this.isMobile ? 1 : this.options.slidesToScroll
+  }
+
+  get slidesVisible () {
+    return this.isMobile ? 3 : this.options.slidesVisible
   }
 }
