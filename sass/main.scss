@@ -20,6 +20,7 @@ body {
     background-color: Transparent;
     border: none;
     font-size: x-large;
+    cursor: pointer;
   }
 }
 
@@ -27,7 +28,6 @@ body {
   display: flex;
   border: 15px;
   padding: 15px;
-  margin: 1px, 15px, 15px;
   box-sizing: content-box;
   background-color: $secondary-color;
   border-radius: 5px;
@@ -39,6 +39,7 @@ body {
       background-color: $primary-color;
       border-radius: 5px;
       border-color: mix($primary-color, $secondary-color);
+      cursor: pointer;
     }
   }
   &__second-block {
@@ -53,7 +54,6 @@ body {
 }
 
 .movies {
-  display: flex;
   border: 15px;
   padding: 15px;
   margin: 5px;
@@ -101,4 +101,44 @@ body {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.carousel {
+  position: relative;
+  &__item {
+    float: left;
+    img {
+      cursor: pointer;
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  &__container::after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+  &__next, &__prev {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: $primary-color url(right.svg) center center no-repeat;
+    background-size: 20px 20px;
+    border-radius: 50%;
+    top: 50%;
+    margin-top: -20px;
+    right: -20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  &__prev {
+    background: $primary-color url(left.svg) center center no-repeat;
+    background-size: 20px 20px;
+    left: -20px;
+  }
 }
