@@ -1,5 +1,8 @@
-// Movie object
 class Movie {
+  /**
+  * Movie object
+  */
+
   constructor(item) {
     this.title = item.title;
     this.year = item.year;
@@ -16,7 +19,11 @@ class Movie {
     this.countries = item.countries;
     this.image_url = item.image_url;
   }
-  // to insert html in modal
+
+  /**
+  * To insert html code in modal
+  * @param {HTMLElement} selector
+  */
   modal(selector) {
     document
       .querySelector(selector + " h1")

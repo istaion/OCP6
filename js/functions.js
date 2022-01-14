@@ -47,7 +47,7 @@ async function categoryMovies(genre, number) {
         '__button"' + ' src=' + value[i].image_url + ' alt="' + genre + i +
         '"> <div id="' + genre + '-modal' + i +
         '" class="modal"><div class="modal-content">' + '<span class="' +
-        genre + '__close">&times;</span><h1></h1><ul></ul></div></div></div>');
+        genre + '__close close">&times;</span><h1></h1><ul></ul></div></div></div>');
       value[i].modal(select);
       let bmModal = document.querySelector(select);
       let bmBtn = document.getElementsByClassName(btnGenre)[i];

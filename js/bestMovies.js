@@ -9,7 +9,7 @@ async function youp() {
         ' src=' + value[i].image_url +
         ' alt="best-movies' + i + '"> <div id="bests-movies-modal' + i +
         '" class="modal"><div class="modal-content">' +
-        '<span class="bests-movies__close">&times;</span><h1></h1><ul></ul></div></div></div>');
+        '<span class="bests-movies__close close">&times;</span><h1></h1><ul></ul></div></div></div>');
       value[i].modal(select);
       let bmModal = document.querySelector(select);
       let bmBtn = document.getElementsByClassName("bests-movies__button")[i-1];
