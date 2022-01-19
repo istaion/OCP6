@@ -5,8 +5,8 @@ $secondary-color: #54646b;
   border: 15px;
   padding: 15px;
   box-shadow: 3px 3px 5px 1px darken($secondary-color, 5%);
-  background-color: $secondary-color;
   box-sizing: content-box;
+  background-color: $secondary-color;
   border-radius: 5px;
 }
 
@@ -70,7 +70,7 @@ body {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 2; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -88,6 +88,9 @@ body {
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+  img {
+    max-width: 340px;
+  }
 }
 
 .close {
@@ -108,9 +111,10 @@ body {
 
 .carousel {
   position: relative;
+  overflow: hidden;
   &__item {
     float: left;
-    img {
+    img:first-child {
       cursor: pointer;
       transition: transform 0.3s;
       &:hover {
@@ -131,17 +135,18 @@ body {
     background-size: 20px 20px;
     border-radius: 50%;
     top: 50%;
-    margin-top: -20px;
-    right: -20px;
+    margin-top: 2px;
+    right: 2px;
+    overflow: visible;
     cursor: pointer;
     transition: transform 0.3s;
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
   }
   &__prev {
     background: $primary-color url(left.svg) center center no-repeat;
     background-size: 20px 20px;
-    left: -20px;
+    left: 2px;
   }
 }
