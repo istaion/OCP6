@@ -95,9 +95,22 @@ body {
   border: 1px solid #888;
   width: 80%;
   /* Could be more or less, depending on screen size */
+  border-radius: 15px;
+  font-size: x-large;
 }
 .modal-content img {
   max-width: 340px;
+}
+.modal-content__first-block {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal-content__first-block img {
+  margin: 15px;
+}
+.modal-content__second-block {
+  display: flex;
 }
 
 .close {

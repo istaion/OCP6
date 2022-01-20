@@ -18,6 +18,7 @@ class Movie {
     this.actors = item.actors;
     this.countries = item.countries;
     this.image_url = item.image_url;
+    this.rated = item.rated;
   }
 
   /**
@@ -30,13 +31,18 @@ class Movie {
       .innerText = this.title;
     document
       .querySelector(selector + " h1")
-      .insertAdjacentHTML('afterend', '<img src=' + this.image_url
-                          + ' alt="best-movie">' + '<p> genre :' + this.genres
+      .insertAdjacentHTML('afterend', '<div class="modal-content__first-block">'
+                          + '<img src=' + this.image_url + '<p> résumé :'
+                          + this.long_description +
+                          '</p></div><div class="modal-content__second-block">'
+                          + '<div><p> genre :' + this.genres
                           + '</p>' + '<p> date de sortie :'
                           + this.date_published + '</p>' + '<p> rated :'
                           + this.rated + '</p>' + '<p> score Imdb :'
                           + this.imdb_score + '</p>' + '<p> réalisateur :'
-                          + this.directors + '</p>' + '<p> acteurs :</p>'
+                          + this.directors + '</p><p> durée :'
+                          + this.duration + 'min </p>'
+                          + '<p> acteurs :</p>'
                         );
     this.actors.forEach(actor => {
       document
@@ -45,10 +51,9 @@ class Movie {
     });
     document
       .querySelector(selector + " ul")
-      .insertAdjacentHTML('afterend', '<p> durée :' + this.duration + 'min </p>'
-                          + '<p> pays d’origine :' + this.countries + '</p>'
-                          + '<p> résultat au Box Office :' + this.votes + '</p>'
-                          + '<p> résumé :' + this.long_description + '</p>'
+      .insertAdjacentHTML('afterend', '<p> pays d’origine :' + this.countries
+                          + '</p><p> résultat au Box Office :'
+                          + this.votes + '</p></div>'
                         );
   };
 }
