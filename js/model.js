@@ -32,10 +32,10 @@ class Movie {
     document
       .querySelector(selector + " h1")
       .insertAdjacentHTML('afterend', '<div class="modal-content__first-block">'
-                          + '<img src=' + this.image_url + '<p> résumé :'
+                          + '<img src=' + this.image_url + '><p> résumé :'
                           + this.long_description +
-                          '</p></div><div class="modal-content__second-block">'
-                          + '<div><p> genre :' + this.genres
+                          '</p></div>'
+                          + '<p> genre :' + this.genres
                           + '</p>' + '<p> date de sortie :'
                           + this.date_published + '</p>' + '<p> rated :'
                           + this.rated + '</p>' + '<p> score Imdb :'
@@ -53,7 +53,7 @@ class Movie {
       .querySelector(selector + " ul")
       .insertAdjacentHTML('afterend', '<p> pays d’origine :' + this.countries
                           + '</p><p> résultat au Box Office :'
-                          + this.votes + '</p></div>'
+                          + this.votes + '</p>'
                         );
   };
 }

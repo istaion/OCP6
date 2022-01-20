@@ -97,13 +97,10 @@ body {
   /* Could be more or less, depending on screen size */
   border-radius: 15px;
 }
-@media (max-width: 1000px) {
+@media (min-width: 1000px) {
   .modal-content {
     font-size: X-large;
   }
-}
-.modal-content img {
-  max-width: 500px;
 }
 @media (max-width: 1000px) {
   .modal-content img {
