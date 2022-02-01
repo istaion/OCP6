@@ -84,7 +84,6 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
 }
-
 .modal-content {
   background-color: #7d98ae;
   display: flex;
@@ -101,6 +100,10 @@ body {
   .modal-content {
     font-size: X-large;
   }
+}
+.modal-content img {
+  width: 30%;
+  min-width: 200px;
 }
 @media (max-width: 1000px) {
   .modal-content img {
