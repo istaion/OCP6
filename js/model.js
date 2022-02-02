@@ -32,7 +32,8 @@ class Movie {
     document
       .querySelector(selector + " h1")
       .insertAdjacentHTML('afterend', '<div class="modal-content__first-block">'
-                          + '<img src=' + this.image_url + '><p> résumé :'
+                          + '<img src=' + this.image_url + ' alt="'
+                          + this.title + '"><p> résumé :'
                           + this.long_description +
                           '</p></div>'
                           + '<p> genre :' + this.genres

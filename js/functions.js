@@ -51,7 +51,7 @@ async function categoryMovies(genre, number) {
         .insertAdjacentHTML('beforeend','<div id="' + genre + '-modal' + i +
         '" class="modal"><div class="modal-content">' + '<span class="' +
         genre + '__close close">&times;</span><h1></h1><ul></ul></div></div>')
-      value[i].modal(select);
+      value[i].modal(select); // to insert html code in modal
       let bmModal = document.querySelector(select);
       let bmBtn = document.getElementsByClassName(btnGenre)[i];
       let bmSpan = document.getElementsByClassName(closeGenre)[i];
