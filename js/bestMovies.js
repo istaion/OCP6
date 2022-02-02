@@ -1,7 +1,7 @@
 // to insert html code in bests movies div
-async function youp() {
-  await bestMovies(8, "-imdb_score").then(function(value) {
-    for (var i = 1; i < 8; i++) {
+async function insertBestMovies(k) {
+  await bestMovies(k, "-imdb_score").then(function(value) {
+    for (var i = 1; i < k; i++) {
       let select = "#bests-movies-modal" + i;
       document
         .querySelector("#best-movies")
@@ -37,4 +37,4 @@ async function youp() {
 
 }
 
-youp()
+insertBestMovies(8)

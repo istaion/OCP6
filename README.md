@@ -13,12 +13,11 @@ films dans la catégorie adventure on code :
 ```
 
 Pour changer le nombre dans la catégorie meilleurs films il faut modifier la
-ligne 3 et 4 du fichier bestMovies.js en mettant le nombre de films désiré plus
+ligne 40 du fichier bestMovies.js en mettant le nombre de films désiré plus
 1, par exemple pour 15 films :
 
 ```js
-await bestMovies(16, "-imdb_score").then(function(value) {
-  for (var i = 1; i < 16; i++) {
+insertBestMovies(16)
 ```
 
 ## changer de catégorie
